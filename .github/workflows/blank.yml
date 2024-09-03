@@ -26,10 +26,6 @@ jobs:
 
     - name: Test Google Cloud access
       run: |
-        gcloud config set project <project-id>
-        gcloud config set account 'iam-lab-7-target@gcp-labs-vmz8d4uh.iam.gserviceaccount.com'
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud auth list
         gcloud projects list
         gcloud secrets list
 
