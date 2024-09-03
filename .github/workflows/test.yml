@@ -16,7 +16,7 @@ jobs:
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v1
       with:
-        workload_identity_provider: "projects/gcp-labs-vmz8d4uh/locations/global/workloadIdentityPools/iam-lab-7-gh-pool/providers/iam-lab-7-gh-pool-oidc-provider"
+        workload_identity_provider: "projects/955505399601/locations/global/workloadIdentityPools/iam-lab-7-gh-pool/providers/iam-lab-7-gh-pool-oidc-provider"
         service_account: "iam-lab-7-target@gcp-labs-vmz8d4uh.iam.gserviceaccount.com"
 
     - name: Set up Google Cloud SDK
