@@ -1,4 +1,4 @@
-name: Exploit OIDC Misconfiguration
+name: test
 
 on:
   workflow_dispatch: 
