@@ -26,8 +26,6 @@ jobs:
 
     - name: Test Google Cloud access
       run: |
-        gcloud kms keyrings list --location global
         gcloud projects list
         gcloud secrets list
-        gcloud secrets versions access latest --secret="flag_iam_lab_7" --project=gcp-labs-vmz8d4uh
       
